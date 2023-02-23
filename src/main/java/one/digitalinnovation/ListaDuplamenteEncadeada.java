@@ -10,7 +10,7 @@ public class ListaDuplamenteEncadeada<T> {
     public ListaDuplamenteEncadeada() {
         this.primeiroNo = null;
         this.ultimoNo = null;
-        this.tamanhoLista = tamanhoLista;
+        this.tamanhoLista = 0;
     }
 
     public T get(int index) {
@@ -18,13 +18,13 @@ public class ListaDuplamenteEncadeada<T> {
     }
 
     public void add(T elemento) {
-        NoDuplo<T> novoNo = new NoDuplo<>(elemento);
+        NoDuplo<T> novoNo = new NoDuplo<T>(elemento);
         novoNo.setNoProximo(null);
         novoNo.setNoPrevio(ultimoNo);
         if (primeiroNo == null) {
             primeiroNo = novoNo;
         }
-        if (ultimoNo == null) {
+        if (ultimoNo != null) {
             ultimoNo.setNoProximo(novoNo);
         }
         ultimoNo = novoNo;
